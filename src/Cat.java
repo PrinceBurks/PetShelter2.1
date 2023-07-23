@@ -5,4 +5,11 @@ public class Cat extends Pet {
         
     }
     
+
+    
+    
+    public void cleanLitterBox(){
+        
+    }
+
 }
