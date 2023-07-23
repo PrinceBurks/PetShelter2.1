@@ -4,5 +4,19 @@ public class Dog extends Pet {
         super(name, species, boredom, health);
         
     }
-     
+    
+
+    public void walkDog(){
+
+    }
+
+
+    public void playFetch(){
+
+    }
+
+
+    public void cleanKennels(){
+
+    }
 }
