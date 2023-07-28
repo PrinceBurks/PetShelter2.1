@@ -1,10 +1,13 @@
-public class Dog extends Pet {
+public class Dog extends RegularPet {
 
-    public Dog(String name, String species, int boredom, int health) {
-        super(name, species, boredom, health);
+    
+    
+
+    public Dog(String name, String species, int boredom, int health, int cleanliness, int happiness) {
+        super(name, species, boredom, health, cleanliness, happiness);
         
     }
-    
+
 
     public void walkDog(){
 

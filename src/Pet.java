@@ -9,7 +9,7 @@ public class Pet {
     public int health;
 
     // constructor
-    public Pet(String name, String species, int boredom, int health) {
+    public Pet(String name, String species, int boredom, int health, int cleanliness, int happiness) {
         // intake the parameters and set them to the class
         this.name = name;
         this.species = species;

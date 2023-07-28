@@ -1,8 +1,10 @@
-public class RoboCat extends Pet {
+public class RoboCat extends RoboPet {
 
-    public RoboCat(String name, String species, int boredom, int health) {
-        super(name, species, boredom, health);
+    public RoboCat(String name, String species, int boredom, int health, int cleanliness, int happiness,
+            int batteryLevel, int oilLevel) {
+        super(name, species, boredom, health, cleanliness, happiness, batteryLevel, oilLevel);
         
     }
+
     
 }

@@ -5,6 +5,9 @@
         "lib/**/*.jar"
     ],
     "cSpell.words": [
-        "Robo"
+        "petkey",
+        "Robo",
+        "robocat",
+        "robodog"
     ]
 }
