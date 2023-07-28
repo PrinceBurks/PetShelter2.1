@@ -27,7 +27,7 @@ public class App {
                             Pet cat = new Cat(catName, "cat", 0, 100, 100, 100);// create new cat object
                             petMap.put(petKey, cat);// add pet to map using an incremented petkey
                             petKey++;// increment the pet key for the next pet added
-
+                            break;
                         }
                         case 2: {// user chose dog
                             System.out.print("what would you like to name your dog?: ");
@@ -35,6 +35,7 @@ public class App {
                             Pet dog = new Dog(dogName, "dog", 0, 100, 100, 100);// create new pet object
                             petMap.put(petKey, dog);// add pet to map using an incremented petkey
                             petKey++;// increment the pet key for the next pet added
+                            break;
                         }
                         case 3: {//user chose roboCat
                             System.out.print("what would you like to name your RoboCat?: ");
@@ -42,6 +43,7 @@ public class App {
                             Pet roboCat = new RoboCat(roboCatName, "robocat", 0, 100, 100, 100, 100, 100);// create new pet object
                             petMap.put(petKey, roboCat);// add pet to map using an incremented petkey
                             petKey++;// increment the pet key for the next pet added
+                            break;
                         }
                         case 4:{//user chose roboDog
                             System.out.print("what would you like to name your RoboDog?: ");
@@ -49,6 +51,7 @@ public class App {
                             Pet roboDog = new RoboDog(roboDogName, "robodog", 0, 100,100,100,100,100);// create new pet object
                             petMap.put(petKey, roboDog);// add pet to map using an incremented petkey
                             petKey++;// increment the pet key for the next pet added
+                            break;
                         }
                     }
                     break;
