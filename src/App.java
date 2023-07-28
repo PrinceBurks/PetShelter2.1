@@ -68,7 +68,6 @@ public class App {
                                 System.out.println("\nYou took " + roboDogName + " into your Shelter");
                                 break;
                             }
-
                         }
                         menu.yesorNo();
                         System.out.print("Would you like to take in another pet?: ");
@@ -78,12 +77,25 @@ public class App {
                     break;
                 }
                 case 2: {
-
+                    int next = 1;
+                    do{
+                    menu.printAllpets();//print pets with their key values
+                    System.out.print("\nWhich Pet would you like to adopt out to a family?: ");//ask user to chose pet
+                    int chosenPet = input.nextInt();//record users choice
+                    input.nextLine();
+                    String chosenPetName = petMap.get(chosenPet).getName();//save pet name so we can access after it is deleted
+                    petMap.remove(chosenPet);//remove users choice from MAP
+                    System.out.println(chosenPetName + " was adopted by a loving family\n");
+                    menu.yesorNo();
+                    System.out.println("\n Would you like to adopt out another Pet?: ");
+                    next = input.nextInt();
+                    input.nextLine();
+                    }while(next == 1);
                     break;
                 }
                 case 3: {
                     menu.printAllpets();
-
+                    menu.chooseWhatToInteractWithMenu();
                     break;
                 }
                 case 4: {
