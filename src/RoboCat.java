@@ -6,7 +6,7 @@ public class RoboCat extends RoboPet {
         super(name, species, boredom, health, cleanliness, happiness, batteryLevel, oilLevel);
         
     }
-
+   
 
     
 }

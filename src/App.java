@@ -1,5 +1,5 @@
 import java.util.HashMap;
-
+import java.util.Map;
 import java.util.Scanner;
 
 
@@ -8,6 +8,7 @@ public class App {
         MenuOptions menu = new MenuOptions();
         Scanner input = new Scanner(System.in);
         HashMap<Integer, Pet> petMap = PetMap.getInstance().referenceData;
+        
         
         int choice = 1;
         int petKey = 1;
@@ -30,7 +31,7 @@ public class App {
                             case 1: {// user chose to add a cat
                                 System.out.print("What do you want to name your cat?: ");
                                 String catName = input.nextLine();// save user input for catName
-                                Pet cat = new Cat(catName, "cat", 0, 100, 100, 100, 0, 0);// create new cat object
+                                Pet cat = new Cat(catName, "cat", 0, 100, 100, 100, 50, 50);// create new cat object
                                 petMap.put(petKey, cat);// add pet to map using an incremented petkey
                                 petKey++;// increment the pet key for the next pet added
                                 menu.printAllpets();//print all pets                             
@@ -41,7 +42,7 @@ public class App {
                             case 2: {// user chose dog
                                 System.out.print("what would you like to name your dog?: ");
                                 String dogName = input.nextLine();// save user input for DogName
-                                Pet dog = new Dog(dogName, "dog", 0, 100, 100, 100, 0, 0);// create new pet object
+                                Pet dog = new Dog(dogName, "dog", 0, 100, 100, 100, 50, 50);// create new pet object
                                 petMap.put(petKey, dog);// add pet to map using an incremented petkey
                                 petKey++;// increment the pet key for the next pet added
                                 menu.printAllpets();//print all pets
@@ -96,6 +97,48 @@ public class App {
                 case 3: {
                     menu.printAllpets();
                     menu.chooseWhatToInteractWithMenu();
+                    int userChoice = input.nextInt();
+                    input.nextLine();
+                    switch(userChoice){
+                        case 1:{
+                            menu.printAllpets();
+                            System.out.print("Please choose a pet to interact with: ");
+                            int petsKey = input.nextInt();
+                            input.nextLine();
+                            Pet singlePet = petMap.get(petsKey);
+                            int interact;
+                            do{
+                            menu.interactionsList();
+                            System.out.println("How would you like to interact with pet?: ");
+                            interact = input.nextInt();
+                            input.nextLine();
+                            switch(interact){
+                                case 0:{
+                                    break;
+                                }
+                                case 1:{
+                                    singlePet.setHunger(20);
+                                    System.out.println(singlePet.getName() + singlePet.getHunger());
+                                    break;
+                                }
+                                case 2:{
+                                    singlePet.setThirst(-10);
+                                    menu.regularPetStats(petsKey);
+                                    break;
+                                }
+                            }
+                        }while(interact != 0);
+                            break;
+                        }
+                        case 2:{
+
+                            break;
+                        }
+                        case 3:{
+
+                            break;
+                        }
+                    }
                     break;
                 }
                 case 4: {
