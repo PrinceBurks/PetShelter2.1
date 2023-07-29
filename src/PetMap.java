@@ -5,7 +5,7 @@ public class PetMap {//this method creates a singleton ** insuring we are always
 
     private static final PetMap instance = new PetMap();
 
-    private PetMap() {
+    public PetMap() {
         Map<Integer, Pet> petMap = new HashMap<Integer, Pet>();
         this.referenceData = (HashMap<Integer, Pet>) petMap;
     }

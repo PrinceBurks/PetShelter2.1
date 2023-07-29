@@ -66,8 +66,35 @@ public class MenuOptions {
     public void regularPetStats(int petKey){
         Pet currentPet = petMap.get(petKey);
         String petName = currentPet.getName();
-        
+        if (currentPet.getSpecies().equalsIgnoreCase("cat") || (currentPet.getSpecies().equalsIgnoreCase("dog"))){
         System.out.println("---------------------------R--E--G--U--L--A--R----P--E--T--S----------------------------------------------------");
+        System.out.println("|    Name    |    Hunger   |    Thirst    |    Health    |    Happiness    |    Cleanliness    |    Boredom    |"  );
+        System.out.println("|" + petName + whiteSpace(petName.length()) + "| " +
+        currentPet.getHunger() + whiteSpace(String.valueOf(currentPet.getHunger()).length()) + "|  " +
+        currentPet.getThirst() + whiteSpace(String.valueOf(currentPet.getThirst()).length()) + "|  " +
+        currentPet.getHealth() + whiteSpace(String.valueOf(currentPet.getHealth()).length()) + "|     " +
+        currentPet.getHappiness() + whiteSpace(String.valueOf(currentPet.getHappiness()).length()) + "|    " +
+        currentPet.getCleanliness() + whiteSpace(String.valueOf(currentPet.getCleanliness()).length()) + "   |  " +
+        currentPet.getBoredom() + whiteSpace(String.valueOf(currentPet.getBoredom()).length()) + " |");
+        }else{
+            System.out.println("-----------------------------------R--O--B--O-----P--E--T--S----------------------------------------------------");
+        System.out.println("|    Name    |    Battery   |     Oil     |    Health    |    Happiness    |    Cleanliness    |    Boredom    |"  );
+        System.out.println("|" + petName + whiteSpace(petName.length()) + "| " +
+        currentPet.getBatteryLevel() + whiteSpace(String.valueOf(currentPet.getBatteryLevel()).length()) + "|  " +
+        currentPet.getOilLevel() + whiteSpace(String.valueOf(currentPet.getOilLevel()).length()) + "|  " +
+        currentPet.getHealth() + whiteSpace(String.valueOf(currentPet.getHealth()).length()) + "|     " +
+        currentPet.getHappiness() + whiteSpace(String.valueOf(currentPet.getHappiness()).length()) + "|    " +
+        currentPet.getCleanliness() + whiteSpace(String.valueOf(currentPet.getCleanliness()).length()) + "   |  " +
+        currentPet.getBoredom() + whiteSpace(String.valueOf(currentPet.getBoredom()).length()) + " |");
+
+        }
+    }
+
+    public void roboPetStats(int petKey){
+        Pet currentPet = petMap.get(petKey);
+        String petName = currentPet.getName();
+        
+        System.out.println("-----------------------------------R--O--B--O-----P--E--T--S----------------------------------------------------");
         System.out.println("|    Name    |    Hunger   |    Thirst    |    Health    |    Happiness    |    Cleanliness    |    Boredom    |"  );
         System.out.println("|" + petName + whiteSpace(petName.length()) + "| " +
         currentPet.getHunger() + whiteSpace(String.valueOf(currentPet.getHunger()).length()) + "|  " +
@@ -78,7 +105,6 @@ public class MenuOptions {
         currentPet.getBoredom() + whiteSpace(String.valueOf(currentPet.getBoredom()).length()) + " |");
         
     }
-
     public String whiteSpace(int attribute) {//method to add white space to menu options 
         int length = 12 - attribute;
         String whiteSpace = "";
