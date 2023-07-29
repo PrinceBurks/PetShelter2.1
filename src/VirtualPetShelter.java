@@ -117,7 +117,7 @@ public class VirtualPetShelter {
     }
 
     public void printAllPets() {
-        System.out.println("Here are all the pets in the shelter:");
+        System.out.println("Here are all the pets in the shelter: ");
         System.out.println("==================================================");
         for (Pet pet : pets) {
             System.out.println(pet);
@@ -126,7 +126,7 @@ public class VirtualPetShelter {
     }
 
     public void printAllPetNames() {
-        System.out.println("Here are all the pets in the shelter:");
+        System.out.println("Here are all the pets in the shelter: ");
         for (Pet pet : pets) {
             System.out.println(pet.getName());
         }
@@ -134,7 +134,7 @@ public class VirtualPetShelter {
     }
 
     public void printAllOrganicCats() {
-        System.out.println("Here are all the organic cats in the shelter:");
+        System.out.println("Here are all the organic cats in the shelter: ");
         System.out.println("==================================================");
         for (Pet pet : pets) {
             if (pet instanceof Cat) {
@@ -145,7 +145,7 @@ public class VirtualPetShelter {
     }
 
     public void printAllOrganicDogs() {
-        System.out.println("Here are all the organic dogs in the shelter:");
+        System.out.println("Here are all the organic dogs in the shelter: ");
         System.out.println("==================================================");
         for (Pet pet : pets) {
             if (pet instanceof Dog) {
@@ -156,7 +156,7 @@ public class VirtualPetShelter {
     }
 
     public void printAllRoboDogs() {
-        System.out.println("Here are all the robo dogs in the shelter:");
+        System.out.println("Here are all the robo dogs in the shelter: ");
         System.out.println("==================================================");
         for (Pet pet : pets) {
             if (pet instanceof RoboDog) {
@@ -167,7 +167,7 @@ public class VirtualPetShelter {
     }
 
     public void printAllRoboCats() {
-        System.out.println("Here are all the robo cats in the shelter:");
+        System.out.println("Here are all the robo cats in the shelter: ");
         System.out.println("==================================================");
         for (Pet pet : pets) {
             if (pet instanceof RoboCat) {
@@ -178,7 +178,7 @@ public class VirtualPetShelter {
     }
 
     public void printAllOrganicPets() {
-        System.out.println("Here are all the organic pets in the shelter:");
+        System.out.println("Here are all the organic pets in the shelter: ");
         System.out.println("==================================================");
         for (Pet pet : pets) {
             if (pet instanceof Cat || pet instanceof Dog) {
@@ -189,7 +189,7 @@ public class VirtualPetShelter {
     }
 
     public void printAllRoboPets() {
-        System.out.println("Here are all the robo pets in the shelter:");
+        System.out.println("Here are all the robo pets in the shelter: ");
         for (Pet pet : pets) {
             if (pet instanceof RoboCat || pet instanceof RoboDog) {
                 System.out.println(pet);
