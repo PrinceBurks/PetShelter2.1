@@ -1,5 +1,6 @@
 import java.util.HashMap;
 
+
 public class Pet {
     // declare variables
     
@@ -23,6 +24,8 @@ public class Pet {
         this.happiness = happiness;
     }
 
+
+
     public int getHappiness() {
         return this.happiness;//return happiness level
     }
@@ -33,7 +36,7 @@ public class Pet {
             this.happiness = 100;
         } else if (this.happiness < 0) {
             this.happiness = 0;
-            System.out.println(getName() + " is very unhappy");
+            // System.out.println(getName() + " is very unhappy");
         }
         
     }
@@ -50,7 +53,7 @@ public class Pet {
             this.cleanliness = 100;
         } else if (this.cleanliness < 0) {
             this.cleanliness = 0;
-            System.out.println(getName() + " is very dirty");
+            // System.out.println(getName() + " is very dirty");
         }
         
     }
@@ -62,7 +65,7 @@ public class Pet {
             this.health = 100;
         } else if (this.health < 0) {
             this.health = 0;
-            System.out.println(this.name + "'s Health is very low");
+            // System.out.println(this.name + "'s Health is very low");
         }
         return this.health;
     }
@@ -77,11 +80,11 @@ public class Pet {
         return this.boredom;
     }
 
-    private void setBoredom(int i) {
+    public void setBoredom(int i) {
         this.boredom = this.boredom + i;
         if (this.boredom > 100) {//set back inside parameters if they go out
             this.boredom = 100;
-            System.out.println(this.name + " is very bored");
+            // System.out.println(this.name + " is very bored");
         } else if (this.boredom < 0) {
             this.boredom = 0;
             
@@ -212,4 +215,6 @@ public class Pet {
     public void oil(){//method to oil pet(overridden in subclass)
 
     }
+
+    
 }

@@ -114,4 +114,16 @@ public class MenuOptions {
         return whiteSpace;
 
     }
+    public void tick(){
+        for (Map.Entry<Integer, Pet> mp : petMap.entrySet()) {
+        
+        mp.getValue().changeHunger(1);
+        mp.getValue().changeThirst(1);
+        mp.getValue().setHappiness(-1);
+        mp.getValue().setHealth(-1);
+        mp.getValue().setBoredom(1);
+        mp.getValue().setOilLevel(-1);
+        mp.getValue().setBatteryLevel(-1);
+    }
+    }
 }

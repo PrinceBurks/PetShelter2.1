@@ -35,7 +35,7 @@ public class RoboPet extends Pet {
             System.out.println(getName() + "'s oil is full");
         } else if (this.oilLevel < 0) {
             this.oilLevel = 0;
-            System.out.println(getName() + "'s oil is very low");
+            // System.out.println(getName() + "'s oil is very low");
         }
         
     }
