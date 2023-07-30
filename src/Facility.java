@@ -175,8 +175,8 @@ public class Facility {
                 mp.getValue().setHappiness(-5);
                 mp.getValue().setHealth(-5);
                 mp.getValue().setBoredom(5);
-                mp.getValue().setOilLevel(-10);
-                mp.getValue().setBatteryLevel(-10);
+                mp.getValue().setOilLevel(-5);
+                mp.getValue().setBatteryLevel(-5);
             }
             if (this.litterBox > 75 && mp.getValue().getSpecies().equalsIgnoreCase("cat")) {
                 mp.getValue().setHappiness(-15);
