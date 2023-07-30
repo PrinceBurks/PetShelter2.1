@@ -2,17 +2,38 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MenuOptions {
-    App map = new App();
+    
     HashMap<Integer, Pet> petMap = PetMap.getInstance().referenceData;
     
-    
+    public void facilityMenu(){
+        System.out.println("-----------------------");
+        System.out.println("| 1) Clean Litter Box  |");
+        System.out.println("| 2) Clean Dog kennels |");
+        System.out.println("| 3) Take out Trash    |");
+        System.out.println("| 4) Clean up Pet Toys |");
+        System.out.println("| 5) Cut the Grass     |");
+        System.out.println("| 0) Go Back           |");
+        System.out.println("-----------------------");
+    }
 
+    public void facilityStats(Facility facility){
+            System.out.println("-----------------------------------F--A--C--I--L--I--T--Y----------------------------------------------");
+        System.out.println("|    Health    |    Cleanness   |     litter     |    Kennels    |    trash    |    Toys    |    Grass    |"  );
+        System.out.println("|" + facility.getFacilityHealth() + whiteSpace(String.valueOf(facility.getFacilityHealth()).length()) + "  |" +
+        facility.getFacilityCleanliness() + whiteSpace(String.valueOf(facility.getFacilityCleanliness()).length()) + "    |" +
+        facility.getLitterBox() + whiteSpace(String.valueOf(facility.getLitterBox()).length()) + "    |" + 
+        facility.getDogKennels() + whiteSpace(String.valueOf(facility.getDogKennels()).length()) + "   |" +
+        facility.getTrash() + whiteSpace(String.valueOf(facility.getTrash()).length()) + " |" +
+        facility.getToys() + whiteSpace(String.valueOf(facility.getToys()).length()) + "|" +
+        facility.getGrass() + whiteSpace(String.valueOf(facility.getGrass()).length()) + " |" );
+        
+    }
     public void mainMenu() {
         System.out.println("Please choose an option below: \n");
         System.out.println("----------------- \n" +
                 "| 1) Intake Pet | \n" +
                 "| 2) Adopt Out  | \n" +
-                "| 3) View Pets  | \n" +
+                "| 3) Interact   | \n" +
                 "| 4) Exit       | \n" +
                 "----------------- \n");
     }
@@ -114,16 +135,22 @@ public class MenuOptions {
         return whiteSpace;
 
     }
-    public void tick(){
-        for (Map.Entry<Integer, Pet> mp : petMap.entrySet()) {
-        
-        mp.getValue().changeHunger(1);
-        mp.getValue().changeThirst(1);
-        mp.getValue().setHappiness(-1);
-        mp.getValue().setHealth(-1);
-        mp.getValue().setBoredom(1);
-        mp.getValue().setOilLevel(-1);
-        mp.getValue().setBatteryLevel(-1);
+    public void tick(){//tick function ran off timer
+        for (Map.Entry<Integer, Pet> mp : petMap.entrySet()) {//loop through each pet in the map
+        //change values for each tick
+        mp.getValue().changeHunger(5);
+        mp.getValue().changeThirst(5);
+        mp.getValue().setHappiness(-5);
+        mp.getValue().setHealth(-5);
+        mp.getValue().setBoredom(5);
+        mp.getValue().setOilLevel(-5);
+        mp.getValue().setBatteryLevel(-5);
+            //if animal is robo pet then recharge if batter is 0
+        if(mp.getValue().getSpecies().equals("robocat") || mp.getValue().getSpecies().equals("robodog")){
+            if(mp.getValue().getBatteryLevel() == 0){
+            mp.getValue().setBatteryLevel(100);
+        }
+    }
     }
     }
 }

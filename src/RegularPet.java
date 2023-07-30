@@ -36,7 +36,7 @@ public class RegularPet extends Pet {
         this.hunger = this.hunger + i;
         if (this.hunger > 100) {
             this.hunger = 100;
-            // System.out.println(getName() + " is very hungry");
+            System.out.println(getName() + " is very hungry");
         } else if (this.hunger < 0) {
             this.hunger = 0;
             System.out.println(getName() + " is very full");
@@ -55,7 +55,7 @@ public class RegularPet extends Pet {
         this.thirst = this.thirst + i;
         if (this.thirst > 100) {
             this.thirst = 100;
-            // System.out.println(getName() + " is very thirsty");
+            System.out.println(getName() + " is very thirsty");
         } else if (this.thirst < 0) {
             this.thirst = 0;
             System.out.println(getName() + " is Quenched");
@@ -67,7 +67,7 @@ public class RegularPet extends Pet {
         this.thirst = this.thirst + i;
         if (this.thirst > 100) {
             this.thirst = 100;
-            // System.out.println(getName() + " is very thirsty");
+            System.out.println(getName() + " is very thirsty");
         } else if (this.thirst < 0) {
             this.thirst = 0;
             System.out.println(getName() + " is Quenched");

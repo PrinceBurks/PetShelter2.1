@@ -1,59 +1,52 @@
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class App {
     public static void main(String[] args) {
-        MenuOptions menu = new MenuOptions();
-        Scanner input = new Scanner(System.in);
+        Keyboard input = new Keyboard();
+        MenuOptions menu = new MenuOptions();//create menu object
+        Facility facility = new Facility(0, 0, 100, 100, 0, 0, 0);//create facility object
+        
         HashMap<Integer, Pet> petMap = PetMap.getInstance().referenceData;
-
         int choice = 1;
         int petKey = 1;
-        
         Timer t = new Timer();
         TimerTask tt = new TimerTask() {
             @Override
             public void run() {
                 menu.tick();
+                facility.tick();
             };
         };
-        t.schedule(tt, new Date(), 1000);
-
-        
-
+        t.schedule(tt, new Date(), 10000);
         boolean gameLoop = true;
         // call start menu
         do {
             menu.mainMenu();// runs main menu to ask user what they want to do
-            int mainMenuOption = input.nextInt();// takes in user choice for main menu
-            input.nextLine();
-
+            int mainMenuOption = input.keyboardInt();// takes in user choice for main menu
+            
             switch (mainMenuOption) {// pass in user option of main menu to take action on
-
                 case 1: {// case 1 user chose to intake pet
                     do {
                         menu.intakeMenu();// show menu to chose which animal to intake
-                        int intakeOption = input.nextInt();// gather users choice on which animal to intake
-                        input.nextLine();
+                        int intakeOption = input.keyboardInt();// gather users choice on which animal to intake
+                        
                         switch (intakeOption) {
                             case 1: {// user chose to add a cat
                                 System.out.print("What do you want to name your cat?: ");
-                                String catName = input.nextLine();// save user input for catName
+                                String catName = input.keyboardStr();// save user input for catName
                                 Pet cat = new Cat(catName, "cat", 0, 100, 100, 100, 50, 50);// create new cat object
                                 petMap.put(petKey, cat);// add pet to map using an incremented petkey
                                 petKey++;// increment the pet key for the next pet added
                                 menu.printAllpets();// print all pets
                                 System.out.println("\nYou took " + catName + " into your Shelter");
                                 break;
-
                             }
                             case 2: {// user chose dog
                                 System.out.print("what would you like to name your dog?: ");
-                                String dogName = input.nextLine();// save user input for DogName
+                                String dogName = input.keyboardStr();// save user input for DogName
                                 Pet dog = new Dog(dogName, "dog", 0, 100, 100, 100, 50, 50);// create new pet object
                                 petMap.put(petKey, dog);// add pet to map using an incremented petkey
                                 petKey++;// increment the pet key for the next pet added
@@ -63,7 +56,7 @@ public class App {
                             }
                             case 3: {// user chose roboCat
                                 System.out.print("what would you like to name your RoboCat?: ");
-                                String roboCatName = input.nextLine();// save user input for DogName
+                                String roboCatName = input.keyboardStr();// save user input for DogName
                                 Pet roboCat = new RoboCat(roboCatName, "robocat", 0, 100, 100, 100, 100, 100);// create
                                                                                                               // new pet
                                                                                                               // object
@@ -75,7 +68,7 @@ public class App {
                             }
                             case 4: {// user chose roboDog
                                 System.out.print("what would you like to name your RoboDog?: ");
-                                String roboDogName = input.nextLine();// save user input for DogName
+                                String roboDogName = input.keyboardStr();// save user input for DogName
                                 Pet roboDog = new RoboDog(roboDogName, "robodog", 0, 100, 100, 100, 100, 100);// create
                                                                                                               // new pet
                                                                                                               // object
@@ -88,8 +81,8 @@ public class App {
                         }
                         menu.yesorNo();
                         System.out.print("Would you like to take in another pet?: ");
-                        choice = input.nextInt();
-                        input.nextLine();
+                        choice = input.keyboardInt();
+                        
                     } while (choice == 1);
                     break;
                 }
@@ -99,37 +92,36 @@ public class App {
                         menu.printAllpets();// print pets with their key values
                         System.out.print("\nWhich Pet would you like to adopt out to a family?: ");// ask user to chose
                                                                                                    // pet
-                        int chosenPet = input.nextInt();// record users choice
-                        input.nextLine();
+                        int chosenPet = input.keyboardInt();// record users choice
+                        
                         String chosenPetName = petMap.get(chosenPet).getName();// save pet name so we can access after
                                                                                // it is deleted
                         petMap.remove(chosenPet);// remove users choice from MAP
                         System.out.println(chosenPetName + " was adopted by a loving family\n");
                         menu.yesorNo();// display yes or no menu and ask if they wanna adopt another
                         System.out.println("\n Would you like to adopt out another Pet?: ");
-                        next = input.nextInt();// set users answer
-                        input.nextLine();
+                        next = input.keyboardInt();// set users answer
+                        
                     } while (next == 1);// break out if they answer no (option 2)
                     break;
                 }
                 case 3: {// user chose to interact
-
                     menu.chooseWhatToInteractWithMenu();// ask user what they want to interact with
-                    int userChoice = input.nextInt();// save response
-                    input.nextLine();
+                    int userChoice = input.keyboardInt();// save response
+                    
                     switch (userChoice) {// start switch and pass in user response
                         case 1: {// user chose to interact with single pet
                             menu.printAllpets();// print list of all pets and their id to chose
                             System.out.print("Please choose a pet to interact with: ");
-                            int petsKey = input.nextInt();// save user response
-                            input.nextLine();
+                            int petsKey = input.keyboardInt();// save user response
+                            
                             Pet singlePet = petMap.get(petsKey);// grab pet from the MAP based on user choice of pet id
                             int interact;// declare variable to break out of next loop
                             do {// start do while loop to stay in the interaction menu till user chooses to exit
                                 menu.interactionsList();// display list of possible interactions
                                 System.out.println("How would you like to interact with pet?: ");
-                                interact = input.nextInt();// save users response
-                                input.nextLine();
+                                interact = input.keyboardInt();// save users response
+                                
                                 switch (interact) {// start switch and pass in chosen interaction
                                     case 0: {// user chose to exit
                                         break;
@@ -189,11 +181,46 @@ public class App {
                             break;
                         }
                         case 2: {// user chose to interact with all animals
-
                             break;
                         }
                         case 3: {// user chose to interact with facility
-
+                            int interactOption = 1;// initialize the loop variable
+                            menu.facilityStats(facility);// show facility stats
+                            do {// start do while loop
+                                menu.facilityMenu();// show facility interaction menu
+                                System.out.print("How would you like to interact?: ");
+                                interactOption = input.keyboardInt();// have user chose interaction                                
+                                switch (interactOption) {// pass in user choice to switch
+                                    case 0: {// user chose to go back
+                                        break;
+                                    }
+                                    case 1: {// user chose to empty litter
+                                        facility.emptyLitter();// method call to empty litter
+                                        menu.facilityStats(facility);// method call to show stats
+                                        break;
+                                    }
+                                    case 2: {// use chose to clean dog kennels
+                                        facility.cleanKennels();// call to clean kennels
+                                        menu.facilityStats(facility);// show stats
+                                        break;
+                                    }
+                                    case 3: {// user chose to take trash out
+                                        facility.takeTrash();// call to take trash out
+                                        menu.facilityStats(facility);// show stats
+                                        break;
+                                    }
+                                    case 4: {// user chose to clean up toys
+                                        facility.cleanToys();// call to clean toys
+                                        menu.facilityStats(facility);// show stats
+                                        break;
+                                    }
+                                    case 5: {// user chose to cut grass
+                                        facility.cutGrass();// call to cut grass
+                                        menu.facilityStats(facility);// show stats
+                                        break;
+                                    }
+                                }
+                            } while (interactOption != 0);// break out of loop when user choses option 0 (go back)
                             break;
                         }
                     }

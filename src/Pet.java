@@ -36,7 +36,7 @@ public class Pet {
             this.happiness = 100;
         } else if (this.happiness < 0) {
             this.happiness = 0;
-            // System.out.println(getName() + " is very unhappy");
+            System.out.println(getName() + " is very unhappy");
         }
         
     }
@@ -53,7 +53,7 @@ public class Pet {
             this.cleanliness = 100;
         } else if (this.cleanliness < 0) {
             this.cleanliness = 0;
-            // System.out.println(getName() + " is very dirty");
+            System.out.println(getName() + " is very dirty");
         }
         
     }
@@ -65,7 +65,7 @@ public class Pet {
             this.health = 100;
         } else if (this.health < 0) {
             this.health = 0;
-            // System.out.println(this.name + "'s Health is very low");
+            System.out.println(this.name + "'s Health is very low");
         }
         return this.health;
     }
@@ -84,7 +84,7 @@ public class Pet {
         this.boredom = this.boredom + i;
         if (this.boredom > 100) {//set back inside parameters if they go out
             this.boredom = 100;
-            // System.out.println(this.name + " is very bored");
+            System.out.println(this.name + " is very bored");
         } else if (this.boredom < 0) {
             this.boredom = 0;
             
@@ -206,6 +206,7 @@ public class Pet {
         setHappiness(-25);
         setHealth(15);
         setBoredom(15);
+        setCleanliness(20);
     }
 
     public void polish(){//method to polish a pet(overridden in subclass)
