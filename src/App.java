@@ -1,14 +1,15 @@
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class App {
     public static void main(String[] args) {
         Keyboard input = new Keyboard();
-        MenuOptions menu = new MenuOptions();//create menu object
-        Facility facility = new Facility(0, 0, 100, 100, 0, 0, 0);//create facility object
-        
+        MenuOptions menu = new MenuOptions();// create menu object
+        Facility facility = new Facility(0, 0, 100, 100, 0, 0, 0);// create facility object
+
         HashMap<Integer, Pet> petMap = PetMap.getInstance().referenceData;
         int choice = 1;
         int petKey = 1;
@@ -26,13 +27,13 @@ public class App {
         do {
             menu.mainMenu();// runs main menu to ask user what they want to do
             int mainMenuOption = input.keyboardInt();// takes in user choice for main menu
-            
+
             switch (mainMenuOption) {// pass in user option of main menu to take action on
                 case 1: {// case 1 user chose to intake pet
                     do {
                         menu.intakeMenu();// show menu to chose which animal to intake
                         int intakeOption = input.keyboardInt();// gather users choice on which animal to intake
-                        
+
                         switch (intakeOption) {
                             case 1: {// user chose to add a cat
                                 System.out.print("What do you want to name your cat?: ");
@@ -82,7 +83,7 @@ public class App {
                         menu.yesorNo();
                         System.out.print("Would you like to take in another pet?: ");
                         choice = input.keyboardInt();
-                        
+
                     } while (choice == 1);
                     break;
                 }
@@ -93,7 +94,7 @@ public class App {
                         System.out.print("\nWhich Pet would you like to adopt out to a family?: ");// ask user to chose
                                                                                                    // pet
                         int chosenPet = input.keyboardInt();// record users choice
-                        
+
                         String chosenPetName = petMap.get(chosenPet).getName();// save pet name so we can access after
                                                                                // it is deleted
                         petMap.remove(chosenPet);// remove users choice from MAP
@@ -101,27 +102,27 @@ public class App {
                         menu.yesorNo();// display yes or no menu and ask if they wanna adopt another
                         System.out.println("\n Would you like to adopt out another Pet?: ");
                         next = input.keyboardInt();// set users answer
-                        
+
                     } while (next == 1);// break out if they answer no (option 2)
                     break;
                 }
                 case 3: {// user chose to interact
                     menu.chooseWhatToInteractWithMenu();// ask user what they want to interact with
                     int userChoice = input.keyboardInt();// save response
-                    
+
                     switch (userChoice) {// start switch and pass in user response
                         case 1: {// user chose to interact with single pet
                             menu.printAllpets();// print list of all pets and their id to chose
                             System.out.print("Please choose a pet to interact with: ");
                             int petsKey = input.keyboardInt();// save user response
-                            
+
                             Pet singlePet = petMap.get(petsKey);// grab pet from the MAP based on user choice of pet id
                             int interact;// declare variable to break out of next loop
                             do {// start do while loop to stay in the interaction menu till user chooses to exit
                                 menu.interactionsList();// display list of possible interactions
                                 System.out.println("How would you like to interact with pet?: ");
                                 interact = input.keyboardInt();// save users response
-                                
+
                                 switch (interact) {// start switch and pass in chosen interaction
                                     case 0: {// user chose to exit
                                         break;
@@ -181,6 +182,88 @@ public class App {
                             break;
                         }
                         case 2: {// user chose to interact with all animals
+                            menu.allPetsStats();//print all pets stats
+                            do{//set do while loop
+                            menu.interactionsList();//show list of interactions
+                            System.out.print("How would you like to interact?");
+                            choice = input.keyboardInt();//save user choice for interaction
+                            switch (choice) {//pass user choice into switch
+                                case 0: {// user chose to exit
+                                    break;
+                                }
+                                case 1: {//user chose to feed all pets
+                                    for (Map.Entry<Integer, Pet> mp : petMap.entrySet()) {//loop through all pets map
+                                        mp.getValue().feed();//feed pet
+                                    }
+                                    menu.allPetsStats();//show stats
+                                    break;
+                                }
+                                case 2: {// user chose to water all pet
+                                    for (Map.Entry<Integer, Pet> mp : petMap.entrySet()) {//loop through all pets map
+                                        mp.getValue().water();//water pets
+                                        
+                                    }
+                                    menu.allPetsStats();//show stats
+                                    break;
+                                }
+                                case 3: {// user chose to all pet
+                                    for (Map.Entry<Integer, Pet> mp : petMap.entrySet()) {//loop through all pets map
+                                        mp.getValue().pet();//pet all pets
+                                    }
+                                    menu.allPetsStats();//show stats
+                                    break;
+                                }
+                                case 4: {// user chose to play all fetch
+                                    for (Map.Entry<Integer, Pet> mp : petMap.entrySet()) {//loop through all pets map
+                                        mp.getValue().fetch();//fetch with all pets
+                                    }
+                                    menu.allPetsStats();//show stats
+                                    break;
+                                }
+                                case 5: {// user chose to wash all pet
+                                    for (Map.Entry<Integer, Pet> mp : petMap.entrySet()) {//loop through all pets map
+                                        mp.getValue().wash();//wash all pets
+                                    }
+                                    menu.allPetsStats();//show stats
+                                    break;
+                                }
+                                case 6: {// user chose to polish all pet
+                                    for (Map.Entry<Integer, Pet> mp : petMap.entrySet()) {//loop through all pets map
+                                        mp.getValue().polish();//polish all pets
+                                    }
+                                    menu.allPetsStats();//show stats
+                                    break;
+                                }
+                                case 7: {// user chose to walk all pet
+                                    for (Map.Entry<Integer, Pet> mp : petMap.entrySet()) {//loop through all pets map
+                                        mp.getValue().walk();//walk all pets
+                                    }
+                                    menu.allPetsStats();//show stats
+                                    break;
+                                }
+                                case 8: {// user chose to let all nap
+                                    for (Map.Entry<Integer, Pet> mp : petMap.entrySet()) {//loop through all pets map
+                                        mp.getValue().nap();//let all pets take a nap
+                                    }
+                                    menu.allPetsStats();//show stats
+                                    break;
+                                }
+                                case 9: {// user chose to groom all pet
+                                    for (Map.Entry<Integer, Pet> mp : petMap.entrySet()) {//loop through all pets map
+                                        mp.getValue().groom();//groom all pets
+                                    }
+                                    menu.allPetsStats();//show stats
+                                    break;
+                                }
+                                case 10: {// user chose to oil all pet
+                                    for (Map.Entry<Integer, Pet> mp : petMap.entrySet()) {//loop through all pets map
+                                        mp.getValue().oil();//oil all pets
+                                    }
+                                    menu.allPetsStats();//show stats
+                                    break;
+                                }
+                            }
+                            }while(choice != 0);// loop till user choses exit option 0
                             break;
                         }
                         case 3: {// user chose to interact with facility
@@ -189,7 +272,7 @@ public class App {
                             do {// start do while loop
                                 menu.facilityMenu();// show facility interaction menu
                                 System.out.print("How would you like to interact?: ");
-                                interactOption = input.keyboardInt();// have user chose interaction                                
+                                interactOption = input.keyboardInt();// have user chose interaction
                                 switch (interactOption) {// pass in user choice to switch
                                     case 0: {// user chose to go back
                                         break;

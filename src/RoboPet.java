@@ -17,9 +17,17 @@ public class RoboPet extends Pet {
 
     // set battery level
     @Override//overridden method allows to run on RoboPets but not regular pets
-    public void setBatteryLevel(int change) {
-        this.batteryLevel = this.batteryLevel + change;
+    public void setBatteryLevel(int i) {
+        
+        this.batteryLevel = this.batteryLevel + i;
+        if (this.batteryLevel > 100) {
+            this.batteryLevel = 100;
+            
+        } else if (this.batteryLevel < 0) {
+            this.batteryLevel = 100;
+            System.out.println(getName() + "'s charged themselves");
     }
+}
 
     // get oil level
     public int getOilLevel() {
