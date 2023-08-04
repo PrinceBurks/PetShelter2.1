@@ -1,7 +1,7 @@
 import java.util.HashMap;
 
 
-public class Pet {
+public abstract class Pet {
     // declare variables
     
     private String name;
@@ -31,7 +31,7 @@ public class Pet {
     }
 
     public void setHappiness(int i) {//method to set happiness
-        this.happiness = this.happiness + i;//set happiness by the intaken parameters
+        this.happiness = this.happiness + i;//set happiness by the intake parameters
         if (this.happiness > 100) {//set back inside parameters if they go out
             this.happiness = 100;
         } else if (this.happiness < 0) {
@@ -102,48 +102,16 @@ public class Pet {
         return this.species;
     }
 
-    public void setThirst(int change) {//set empty method so it can be overridden in subclass
-    }
-
-    public int getThirst() {//set empty method so it can be overridden in subclass
-        return 0;
-    }
-
-    public void changeThirst(int i){//set empty method so it can be overridden in subclass
-        /*this method exists to allow the setThirst method to be overridden and tell user they cant
-         * water robo pet when the water method is ran, but allowing other methods to be ran on roboPets
-         * that involve changing thirst and not having the message pop up that you cant water roboPets
-         */
-    }
-
-    public void setHunger(int i) {//set empty method so it can be overridden in subclass
-    }
-
-    public int getHunger() {//set empty method so it can be overridden in subclass
-        return 0;
-    }
-    public void changeHunger(int i){//set empty method so it can be overridden in subclass
-        //this method allows for no response when changing hunger off all animals
-        //white the set hunger will allow is overridden for the feed method, allowing the
-        //code to tell user they can feed a robo animal while allowing other methods
-        //to make changes without the alert
-    }
-
-    public int getBatteryLevel() {//set empty method so it can be overridden in subclass
-        return 0;
-    }
-
-    public void setBatteryLevel(int i){//set empty method so it can be overridden in subclass
-
-    }
-
-    public int getOilLevel() {//set empty method so it can be overridden in subclass
-        return 0;
-    }
-
-    public void setOilLevel(int i){//set empty method so it can be overridden in subclass
-
-    }
+    public abstract void setThirst(int change);
+    public abstract int getThirst();
+    public abstract void changeThirst(int i);
+    public abstract void setHunger(int i);
+    public abstract int getHunger();
+    public abstract void changeHunger(int i);
+    public abstract int getBatteryLevel();
+    public abstract void setBatteryLevel(int i);
+    public abstract int getOilLevel();
+    public abstract void setOilLevel(int i);
 
     // -----I--N--T--E--R--A--C--T--I--O--N--S-------------//
     public void feed() {//method to feed pets

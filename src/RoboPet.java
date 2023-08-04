@@ -1,4 +1,4 @@
-public class RoboPet extends Pet {
+public abstract class RoboPet extends Pet {
     private int batteryLevel, oilLevel;
 
     public RoboPet(String name, String species, int boredom, int health, int cleanliness, int happiness,
@@ -48,9 +48,7 @@ public class RoboPet extends Pet {
         
     }
 
-    public int getThirst() {// return 0 because robo pets don't get thirsty
-        return 0;
-    }
+    
 
     public void setThirst(int choice) {//override for robo pet to alert user
         System.out.println("You cannot give water to a RoboPet");
@@ -100,6 +98,6 @@ public class RoboPet extends Pet {
         setHappiness(10);
         setHealth(50);
 
-    }
+    }   
 
 }

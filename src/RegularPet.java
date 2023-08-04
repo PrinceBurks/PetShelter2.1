@@ -1,4 +1,4 @@
-public class RegularPet extends Pet {
+public abstract class RegularPet extends Pet {
 
     private int hunger, thirst;
 
@@ -86,4 +86,6 @@ public class RegularPet extends Pet {
     public void oil() {
         System.out.println("You cant oil a regular Pet");
     }
+
+    
 }

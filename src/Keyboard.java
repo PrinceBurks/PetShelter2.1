@@ -9,12 +9,10 @@ public class Keyboard {
         int value = 0;
         //initialize boolean and set to true
         boolean failedInt = true;
-        //set while loop to loop untill we get a usable input
+        //set while loop to loop until we get a usable input
         while (failedInt) {
             //initialize variable to save user input to
             String stringInt = input.nextLine();
-            //check if user entered the word quit to end program
-            checkOptOut(stringInt);
             //try to fix an exception if user entered wrong input
             try {
                 //attempt to parse input to an integer
@@ -23,11 +21,8 @@ public class Keyboard {
                 failedInt = false;
                 //catch exception and alert user to invalid input
             } catch (NumberFormatException e) {
-
                 System.out.print(stringInt + " is not a correct option, please enter a number: ");
-
             }
-
         }
         //return the successful value of users input
         
@@ -51,9 +46,8 @@ public class Keyboard {
         //start while loop passing in condition
         while (failedStr) {
             //save variable to users input
-            intString = input.nextLine();
-            //check for if user entered keyword quit to stop the program
-            checkOptOut(intString);
+            intString = input.nextLine();          
+            
             //check for exception
             try {
                 // checks if user entered a word or a word less then 50 characters and throws message if not
@@ -73,16 +67,9 @@ public class Keyboard {
                 System.out.println(ex.getMessage());
             }
         }
-        //return the validated response
+        //return the validated response      
         
         return value;
     }
-    // this method checks each input by user for the keyword "quit" and exits program if found
-    public void checkOptOut(String optOut) {
-
-        if (optOut.toLowerCase().equals("quit")) {
-            System.exit(0);
-        }
-
-    }
+    
 }
